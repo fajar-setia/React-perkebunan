@@ -6,7 +6,7 @@ function AddProductAdmin() {
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [stock, setStock] = useState("");
-  const [image, setImage] = useState(null);
+  const [uploads, setImage] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -16,10 +16,10 @@ function AddProductAdmin() {
     formData.append("Description", description);
     formData.append("Price", price);
     formData.append("Stock", stock);
-    formData.append("Image", image); // <--- file input
+    formData.append("Image", uploads); // <--- file input
 
     try {
-      const response = await fetch("http://localhost:5296/api/Perkebunan", {
+      const response = await fetch("http://localhost:5296/api/perkebunan", {
         method: "POST",
         body: formData,
       });
